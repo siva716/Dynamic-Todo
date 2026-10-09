@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A responsive task manager with local storage.">
+  <title>TaskFlow | Smart To-Do App</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a href="#" class="brand"><span class="brand-icon">✓</span> TaskFlow</a>
+      <span class="saved-label"><span class="status-dot"></span> Saved locally</span>
+    </header>
+
+    <main>
+      <section class="welcome">
+        <p class="eyebrow">YOUR PERSONAL WORKSPACE</p>
+        <h1>Make room for <span>great things.</span></h1>
+        <p class="subtitle">Organize your day, focus on what matters, and celebrate every little win.</p>
+      </section>
+
+      <section class="stats-grid" aria-label="Task statistics">
+        <article class="stat-card">
+          <span class="stat-label">Total tasks</span>
+          <strong id="totalCount">0</strong>
+          <span class="stat-caption">On your list</span>
+        </article>
+        <article class="stat-card">
+          <span class="stat-label">In progress</span>
+          <strong id="pendingCount">0</strong>
+          <span class="stat-caption">Still to do</span>
+        </article>
+        <article class="stat-card">
+          <span class="stat-label">Completed</span>
+          <strong id="completedCount">0</strong>
+          <span class="stat-caption">Wins collected</span>
+        </article>
+      </section>
+
+      <section class="task-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">STAY ON TRACK</p>
+            <h2>My tasks <span class="task-badge" id="listCount">0</span></h2>
+          </div>
+          <button type="button" id="clearCompleted" class="text-button">Clear completed</button>
+        </div>
+
+        <form id="taskForm" class="task-form">
+          <label class="sr-only" for="taskInput">New task</label>
+          <input id="taskInput" type="text" maxlength="150" placeholder="What needs to get done?" autocomplete="off" required>
+          <select id="priorityInput" aria-label="Task priority">
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+            <option value="low">Low</option>
+          </select>
+          <button type="submit" class="add-button">＋ Add task</button>
+        </form>
+
+        <div class="toolbar">
+          <div class="filters" role="group" aria-label="Filter tasks">
+            <button type="button" class="filter-btn active" data-filter="all">All</button>
+            <button type="button" class="filter-btn" data-filter="pending">Pending</button>
+            <button type="button" class="filter-btn" data-filter="completed">Completed</button>
+          </div>
+          <label class="search-box">
+            <span aria-hidden="true">⌕</span>
+            <input id="searchInput" type="search" placeholder="Search tasks..." aria-label="Search tasks">
+          </label>
+        </div>
+
+        <div class="progress-section">
+          <div class="progress-label">
+            <span>Daily progress</span>
+            <strong id="progressText">0%</strong>
+          </div>
+          <div class="progress-track">
+            <div id="progressBar" class="progress-fill"></div>
+          </div>
+        </div>
+
+        <ul id="taskList" class="task-list" aria-live="polite"></ul>
+
+        <div id="emptyState" class="empty-state">
+          <div class="empty-icon">✦</div>
+          <h3>Your space to get things done</h3>
+          <p>Add your first task above and start building momentum.</p>
+        </div>
+
+        <div class="list-footer">
+          <span id="footerText">You're all caught up.</span>
+          <span>Stored on this device</span>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Built with focus by <strong>Sivaneshwaran R.</strong></p>
+      <p>Small steps. Big progress. ✦</p>
+    </footer>
+  </div>
+</body>
+</html>
